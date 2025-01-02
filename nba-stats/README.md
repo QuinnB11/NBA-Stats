@@ -1,119 +1,70 @@
-# NBA Stats App
+# Getting Started with Create React App
 
-## Overview
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-The **NBA Stats App** is a web application that provides detailed statistics for NBA players, teams, and games from the 2023 season. The app allows users to view data in a table format, as well as add and delete data entries for players, teams, and games.
+## Available Scripts
 
-The app is built using a **FastAPI** backend with a **PostgreSQL** database, and a **React** frontend with **TypeScript** and **Material-UI (MUI)** for styling. It is designed to run locally only, as specified in the project requirements.
+In the project directory, you can run:
 
----
+### `yarn start`
 
-## Tech Stack
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-- **Backend**:
-  - **FastAPI** (for building the API)
-  - **PostgreSQL** (database)
-  - **SQL** (pure SQL for data management)
-  - **Uvicorn** (ASGI server)
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-- **Frontend**:
-  - **React** (UI framework)
-  - **TypeScript** (for type safety)
-  - **Material-UI** (MUI for design components)
-  - **Yarn** (for package management)
+### `yarn test`
 
----
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-## Features
+### `yarn build`
 
-- **View NBA Stats**:
-  - Displays a table of NBA players, teams, and games for the 2023 season.
-  - Players' statistics include points, assists, rebounds, and other key metrics.
-  - Game data includes scores, date, and participating teams.
-  - Teams' information includes roster and performance metrics.
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-- **Add and Delete Data**:
-  - Users can add new NBA players, games, and teams to the database.
-  - Users can also delete existing data from the database.
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
----
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-## Prerequisites
+### `yarn eject`
 
-Before running the app, ensure the following tools are installed:
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-- **Python 3.8+** (for backend)
-- **Node.js** and **Yarn** (for frontend)
-- **PostgreSQL** (database server)
-- **Postman** or similar tool for testing API endpoints (optional)
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
----
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-## Setup Instructions
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-### 1. Set up the Backend (FastAPI with PostgreSQL)
+## Learn More
 
-#### Step 1: Clone the repository
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-Clone the project from GitHub:
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-#### Step 2: Install proper things
+### Code Splitting
 
-##### Frontend:
-- Install Yarn and node (nvm)
-- run `yarn add` in the `\nba_stats`
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-##### Backend:
-- Activate python virual environment:
-```
-python3 -m venv venv 
-source venv/bin/activate 
-```
-- Run `pip install -r requirements.txt` fastapi and uvicorn
+### Analyzing the Bundle Size
 
----
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-## Run Instructions: 
+### Making a Progressive Web App
 
-### Backend: 
-To start the backend server, run the following command:
-```
-cd backend/
-uvicorn app.main:app --reload --workers 1 --host 0.0.0.0 --port 8000
-```
-The backend will now be accessible at `http://localhost:8000`
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
+### Advanced Configuration
 
-### Frontend:
-To start the frontend development server, run:
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-```
-cd nba-stats/
-yarn start
-```
-Open your browser (GOOGLE CHROME) and navigate to `http://localhost:3000` to access the frontend
+### Deployment
 
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
----
+### `yarn build` fails to minify
 
-## Developer Notes:
-To restart the server and create every table again with orginal data from csv,
-Add: 
-```
-@app.post('/restart')
-async def initdb():
-    try:
-        drop_tables()
-        create_tables()
-        insert_team_data_from_csv()
-        insert_game_data_from_csv()
-        insert_player_data_from_csv()
-        insert_award_data()
-        return {"message": "Tables ; and created!"}
-    except Exception as e:
-        raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            detail=f"Error {e}"
-        )
-```
-to `main.py` on the backend. Curl to this `http://0.0.0.0:8000/restart` to restart database!
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
