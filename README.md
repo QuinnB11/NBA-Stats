@@ -71,6 +71,8 @@ source venv/bin/activate
 ```
 - Run `pip install -r requirements.txt` fastapi and uvicorn
 
+- Add to the `.env` file, where the info is in the user manual document!
+
 ---
 
 ## Run Instructions: 
