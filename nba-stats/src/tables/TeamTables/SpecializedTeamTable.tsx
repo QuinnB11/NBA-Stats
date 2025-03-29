@@ -26,17 +26,17 @@ export const SpecializedTeamTable: React.FC = () => {
       let url = '';
       switch (filterType) {
         case 'Team Awards':
-          url = `http://0.0.0.0:8000/teamAwards`;
+          url = process.env.REACT_APP_API_URL+`/teamAwards`;
           break;
         case 'Team SOS':
           if (SOSValue !== null) {
-            url = `http://0.0.0.0:8000/teamSOS?SOS=${SOSValue}`;
+            url = process.env.REACT_APP_API_URL+`/teamSOS?SOS=${SOSValue}`;
           } else {
             throw new Error('SOS value must be provided');
           }
           break;
         case 'Road Games':
-          url = `http://0.0.0.0:8000/roadgames`;
+          url = process.env.REACT_APP_API_URL+`/roadgames`;
           break;
         default:
           throw new Error('Invalid filter type');

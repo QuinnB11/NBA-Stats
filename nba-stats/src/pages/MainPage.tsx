@@ -17,7 +17,7 @@ export const MainPage : React.FC = () => {
   const { mutate, isPending } = useMutation({
     mutationKey: ['initdb'],
     mutationFn: async () => {
-      const response = await fetch('http://0.0.0.0:8000/initdb', {
+      const response = await fetch(process.env.REACT_APP_API_URL+'/initdb', {
         method: 'POST'
       });
       if (!response.ok) {

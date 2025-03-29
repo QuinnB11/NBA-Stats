@@ -12,6 +12,8 @@ from app.team_queries import get_team_by_name, get_all_teams, get_num_team_award
 from app.game_queries import get_game_by_team_id, get_all_games, get_advanced_game_stats_by_team_id
 from app.csv_parser import insert_player_data_from_csv, insert_team_data_from_csv, insert_game_data_from_csv, insert_award_data
 from app.player_validation import is_valid_team_id, is_valid_age, is_valid_position, is_valid_games_started, is_valid_player_name
+
+
 app = FastAPI()
 
 origins = [
@@ -29,6 +31,8 @@ app.add_middleware(
 
 @app.get('/')
 async def index():
+    # Database URL
+
     return {'message': 'Welcome to nba app!'}
 
 

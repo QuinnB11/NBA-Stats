@@ -21,7 +21,7 @@ const tradeColumns: GridColDef[] = [
 ];
 
 const fetchTrades = async () => {
-  const response = await fetch('http://0.0.0.0:8000/trades');
+  const response = await fetch(process.env.REACT_APP_API_URL+'/trades');
   if (!response.ok) {
     throw new Error('Error fetching data');
   }

@@ -39,8 +39,8 @@ const advancedColumns: GridColDef[] = [
 
 const fetchGameData = async (team_id: string, isAdvanced: boolean) => {
   const endpoint = isAdvanced
-    ? `http://0.0.0.0:8000/advancedGameStat`
-    : `http://0.0.0.0:8000/games`;
+    ? process.env.REACT_APP_API_URL+`advancedGameStat`
+    : process.env.REACT_APP_API_URL+`games`;
   
   const response = await fetch(endpoint);
   if (!response.ok) {

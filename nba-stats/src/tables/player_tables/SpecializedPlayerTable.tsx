@@ -28,13 +28,13 @@ export const SpecializedPlayerTable: React.FC = () => {
       let url = '';
       switch (filterType) {
         case 'Points per Game':
-          url = `http://0.0.0.0:8000/playerPoints?points=${statValue}`;
+          url = process.env.REACT_APP_API_URL+`/playerPoints?points=${statValue}`;
           break;
         case 'Assists per Game':
-          url = `http://0.0.0.0:8000/playerAssists?assists=${statValue}`;
+          url = process.env.REACT_APP_API_URL+`/playerAssists?assists=${statValue}`;
           break;
         case 'Free Throw Percentage':
-          url = `http://0.0.0.0:8000/playerFTPerc?FTPerc=${statValue/100}`;
+          url = process.env.REACT_APP_API_URL+`/playerFTPerc?FTPerc=${statValue/100}`;
           break;
         default:
           throw new Error('Invalid filter type');

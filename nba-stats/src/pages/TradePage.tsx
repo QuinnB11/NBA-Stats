@@ -4,7 +4,7 @@ import { useQuery, useMutation } from '@tanstack/react-query';
 import { TradeDataTable } from '../tables/trade_tables/TradeTable';
 
 const fetchPlayers = async () => {
-  const response = await fetch('http://0.0.0.0:8000/players');
+  const response = await fetch(process.env.REACT_APP_API_URL+'/players');
   if (!response.ok) {
     throw new Error('Failed to fetch players');
   }
@@ -12,7 +12,7 @@ const fetchPlayers = async () => {
 };
 
 const tradePlayers = async (tradeData: { player1_id: number, player2_id: number }) => {
-  const response = await fetch('http://0.0.0.0:8000/tradePlayers', {
+  const response = await fetch(process.env.REACT_APP_API_URL+'/tradePlayers', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

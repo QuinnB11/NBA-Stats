@@ -21,7 +21,7 @@ const playerColumns: GridColDef[] = [
 ];
 
 const fetchPlayers = async (name: string) => {
-  const response = await fetch(`http://0.0.0.0:8000/players?name=${name}`);
+  const response = await fetch(process.env.REACT_APP_API_URL+`/players?name=${name}`);
   if (!response.ok) {
     throw new Error('Error fetching data');
   }

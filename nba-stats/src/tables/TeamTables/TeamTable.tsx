@@ -19,7 +19,7 @@ const teamColumns: GridColDef[] = [
 ];
 
 const fetchTeams = async (name: string) => {
-  const response = await fetch(`http://0.0.0.0:8000/teams?name=${name}`);
+  const response = await fetch(process.env.REACT_APP_API_URL+`/teams?name=${name}`);
   if (!response.ok) {
     throw new Error('Error fetching data');
   }

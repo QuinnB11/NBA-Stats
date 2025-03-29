@@ -14,7 +14,7 @@ const EditPage: React.FC = () => {
     const { data: players, isLoading, error } = useQuery({
         queryKey: ['players'], 
         queryFn: async () => {
-            const response = await fetch('http://0.0.0.0:8000/players');
+            const response = await fetch(process.env.REACT_APP_API_URL+'/players');
             return response.json();
         }
     });
@@ -22,7 +22,7 @@ const EditPage: React.FC = () => {
     const { mutate: insertPlayerMutation, isPending: isInserting } = useMutation({
         mutationKey: ['insertPlayer'],
         mutationFn: async () => {
-            const response = await fetch('http://0.0.0.0:8000/insertPlayer', {
+            const response = await fetch(process.env.REACT_APP_API_URL+'/insertPlayer', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ team_id: teamId, name, age, position, games_started: gamesStarted }),
@@ -44,7 +44,7 @@ const EditPage: React.FC = () => {
     const { mutate: updatePlayerMutation, isPending: isUpdating } = useMutation({
         mutationKey: ['updatePlayer'],
         mutationFn: async () => {
-            const response = await fetch('http://0.0.0.0:8000/updatePlayer', {
+            const response = await fetch(process.env.REACT_APP_API_URL+'/updatePlayer', {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ player_id: playerId, team_id: teamId, name, age, position, games_started: gamesStarted }),
@@ -66,7 +66,7 @@ const EditPage: React.FC = () => {
     const { mutate: deletePlayerMutation, isPending: isDeleting } = useMutation({
         mutationKey: ['deletePlayer'],
         mutationFn: async () => {
-            const response = await fetch('http://0.0.0.0:8000/deletePlayer', {
+            const response = await fetch(process.env.REACT_APP_API_URL+'/deletePlayer', {
                 method: 'DELETE',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ player_id: playerId }),
